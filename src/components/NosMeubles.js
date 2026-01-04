@@ -197,7 +197,15 @@ function NosMeubles() {
           ))}
         </Carousel>
       </div>
-
+      <div className="text-center my-4">
+        <Link 
+            to="/" 
+            className="btn btn-primary btn-animated"
+            style={{ backgroundColor: "#001f3f", border: "none", color: "goldenrod", fontWeight: "bold" }}
+        >
+            <i className="bi bi-arrow-left-circle me-2"></i> Retour à l’accueil
+        </Link>
+        </div>
       {/* SECTION NOS MEUBLES */}
       <Container id="meubles" className="my-5">
         <h2 className="mb-4">Nos meublés disponibles</h2>
