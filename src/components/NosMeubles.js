@@ -11,8 +11,8 @@ import { Link } from "react-router-dom";
 function NosMeubles() {
   const [darkMode, setDarkMode] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [loadingListings, setLoadingListings] = useState(false);
-  const [navbarOpaque, setNavbarOpaque] = useState(false);
+  const [, setLoadingListings] = useState(false);
+  const [, setNavbarOpaque] = useState(false);
 
   const [showReservation, setShowReservation] = useState(false);
   const [selectedMeuble, setSelectedMeuble] = useState(null);
