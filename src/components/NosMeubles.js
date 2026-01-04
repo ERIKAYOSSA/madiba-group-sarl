@@ -289,15 +289,6 @@ function NosMeubles() {
           ))}
         </Row>
 
-        <div style={{ textAlign: "center", marginTop: "30px" }}>
-          <Link
-            to="/nos-meubles"
-            style={{ color: themeColors.text, textDecoration: "none", fontWeight: "bold", fontSize: "18px" }}
-          >
-            Voir plus <i className="bi bi-arrow-right"></i>
-          </Link>
-        </div>
-
         {/* Modal réservation */}
         <Modal show={showReservation} onHide={() => setShowReservation(false)} centered>
           <Modal.Header closeButton style={{ backgroundColor: themeColors.background }}>
