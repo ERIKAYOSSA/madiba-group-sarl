@@ -632,14 +632,16 @@ function Acceuil() {
               <h4 className="footer-title">MADIBA GROUP SARL</h4>
               <p className="footer-text">Votre partenaire de confiance en immobilier et logistique.</p>
             </Col>
-            <Col md={3} className="text-center mb-3">
-              <h5 className="footer-title">Liens rapides</h5>
-              <ul className="list-unstyled">
-                <li><Link to="/" className="footer-link">Accueil</Link></li>
-                <li><Link to="/nos-services" className="footer-link">Nos Services</Link></li>
-                <li><Link to="/contact" className="footer-link">Contact</Link></li>
-              </ul>
-            </Col>
+            {/* Liens rapides */}
+              <Col md={3} className="text-center mb-3">
+                <h5 className="footer-title">Liens rapides</h5>
+                <ul className="list-unstyled">
+                  <li><Link to="/" className="footer-link">Accueil</Link></li>
+                  <li><Link to="/nos-services" className="footer-link">Nos Services</Link></li>
+                  {/* ✅ Correction ici */}
+                  <li><Link to="/contact" className="footer-link">Contact</Link></li>
+                </ul>
+              </Col>
             <Col md={3} className="text-center mb-3">
               <h5 className="footer-title">Services</h5>
               <ul className="list-unstyled">

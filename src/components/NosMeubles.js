@@ -125,7 +125,7 @@ function NosMeubles() {
                 <NavDropdown.Item as={Link} to="/promotion-immobiliere">Promotion immobilière</NavDropdown.Item>
                 <NavDropdown.Item as={Link} to="/gestion-locative">Gestion locative</NavDropdown.Item>
               </NavDropdown>
-              <Nav.Link as={Link} to="/nous-contacter">Contact</Nav.Link>
+              <Nav.Link as={Link} to="/contact">Contact</Nav.Link>
             </Nav>
             <Button className="ms-3 btn-animated" style={{ backgroundColor: themeColors.accent, border: "none", color: themeColors.background }}>
               Se connecter
