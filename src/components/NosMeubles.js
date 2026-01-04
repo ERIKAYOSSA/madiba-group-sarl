@@ -14,6 +14,8 @@ import {  NavDropdown } from "react-bootstrap";
 function App() {
   const [darkMode, setDarkMode] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [setLoadingListings] = useState(false);
+  const [ setNavbarOpaque] = useState(false);
 
   const [showReservation, setShowReservation] = useState(false);
   const [selectedMeuble, setSelectedMeuble] = useState(null);
