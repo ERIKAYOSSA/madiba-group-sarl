@@ -4,15 +4,12 @@ import "animate.css";
 import "../App.css";
 import { Container, Row, Col, Card, Form, Button } from "react-bootstrap";
 import { Helmet } from "react-helmet";
+import { Link } from "react-router-dom";
 
 function Contact() {
   return (
     <div className="contact-page theme-transition">
-      {/* Helmet pour titre et favicon */}
-      <Helmet>
-        <title>Contact - MADIBA GROUP SARL</title>
-        <link rel="icon" href="/logoMadiba.png" />
-      </Helmet>
+      
 
       {/* Hero Section */}
       <div className="contact-hero text-center py-5" style={{ background: "#001f3f", color: "#fff" }}>
