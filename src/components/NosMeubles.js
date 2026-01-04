@@ -4,15 +4,7 @@ import "animate.css";
 import "../App.css";
 import { Navbar, Nav, Form, Spinner, Modal, Toast, ToastContainer, Container, Row, Col, Card, Button } from "react-bootstrap";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import logo from "../logomadiba.jpg";
-import headerBg from "../header-bg.jpg";
-import image1 from "../image1.jpg";
-import image2 from "../image2.jpg";
-import image3 from "../image3.jpg";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import Page1 from "../components/Page1";
-import Page2 from "../components/Page2";
-import Page3 from "../components/Page3";
+import { BrowserRouter as  Link } from "react-router-dom";
 import { Carousel } from "react-bootstrap";
 import ScrollToTopButton from "../components/ScrollToTopButton";
 import logoMadiba from "../logomadiba.jpg";
@@ -22,9 +14,6 @@ import {  NavDropdown } from "react-bootstrap";
 function App() {
   const [darkMode, setDarkMode] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [loadingListings, setLoadingListings] = useState(true);
-  const [navbarOpaque, setNavbarOpaque] = useState(false);
-  const [showModal, setShowModal] = useState(false);
 
   const [showReservation, setShowReservation] = useState(false);
   const [selectedMeuble, setSelectedMeuble] = useState(null);
