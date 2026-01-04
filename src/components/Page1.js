@@ -9,10 +9,7 @@ import headerBg from "../header-bg.jpg";
 import image1 from "../image1.jpg";
 import image2 from "../image2.jpg";
 import image3 from "../image3.jpg";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import Page1 from "../components/Page1";
-import Page2 from "../components/Page2";
-import Page3 from "../components/Page3";
+import { BrowserRouter as Link } from "react-router-dom";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
