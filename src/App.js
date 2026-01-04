@@ -5,6 +5,7 @@ import Page2 from "./components/Page2";
 import Page3 from "./components/Page3";
 import NosMeubles from "./components/NosMeubles";
 import MeubleDetails from "./components/MeubleDetails";
+import Contact from "./components/Contact";
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Route path="/page3" element={<Page3 />} />
         <Route path="/meuble/:id" element={<MeubleDetails />} />
         <Route path="/nos-meubles" element={<NosMeubles />} />
+        <Route path="/contact" element={<Contact />} />
 
       </Routes>
     </Router>

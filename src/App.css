@@ -491,3 +491,71 @@ body {
   width: 90%;
   margin: 0 auto;
 }
+/* ===== CONTACT PAGE ===== */
+.contact-page {
+  background-color: #f9f9f9;
+  min-height: 100vh;
+}
+
+/* Hero Section */
+.contact-hero {
+  background: linear-gradient(135deg, #001f3f, #003366);
+  color: #fff;
+  padding: 80px 20px;
+}
+.contact-hero h1 {
+  font-size: 2.8rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+.contact-hero p {
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+/* Formulaire */
+.contact-page .card {
+  border-radius: 12px;
+  border: none;
+}
+.contact-page .form-label {
+  font-weight: 600;
+  color: #001f3f;
+}
+.contact-page .form-control {
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  transition: all 0.3s ease;
+}
+.contact-page .form-control:focus {
+  border-color: #FFB400;
+  box-shadow: 0 0 8px rgba(255, 180, 0, 0.4);
+}
+
+/* Bouton Envoyer */
+.contact-page .btn-animated {
+  border-radius: 8px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+.contact-page .btn-animated:hover {
+  transform: scale(1.05);
+  background-color: #e2df07;
+  color: #001f3f;
+}
+
+/* Infos de contact */
+.contact-page .bi {
+  color: #001f3f;
+  margin-bottom: 10px;
+}
+.contact-page p {
+  font-size: 1rem;
+  color: #333;
+}
+
+/* Carte Google Maps */
+.contact-page iframe {
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
