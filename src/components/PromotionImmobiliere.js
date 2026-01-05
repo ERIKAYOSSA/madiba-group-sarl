@@ -9,6 +9,9 @@ import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 import logoMadiba from "../logomadiba.jpg";
 import vid1 from "../vid1.MP4";
 import vid2 from "../vid2.MP4";
+import image4 from "../image4.jpg";
+import image3 from "../image3.jpg";
+import image1 from "../image1.jpg";
 
 function PromotionImmobiliere() {
   return (
@@ -107,7 +110,7 @@ function PromotionImmobiliere() {
         <Row className="mt-5">
           <Col md={4}>
             <Card className="shadow-lg promotion-card">
-              <Card.Img variant="top" src="/image1.jpg" alt="Projet 1" />
+              <Card.Img variant="top" src={image3} alt="Projet 1" />
               <Card.Body>
                 <Card.Title>Résidence Prestige</Card.Title>
                 <Card.Text>
@@ -122,7 +125,7 @@ function PromotionImmobiliere() {
 
           <Col md={4}>
             <Card className="shadow-lg promotion-card">
-              <Card.Img variant="top" src="/image2.jpg" alt="Projet 2" />
+              <Card.Img variant="top" src={image4} alt="Projet 2" />
               <Card.Body>
                 <Card.Title>Résidence Horizon</Card.Title>
                 <Card.Text>
@@ -137,7 +140,7 @@ function PromotionImmobiliere() {
 
           <Col md={4}>
             <Card className="shadow-lg promotion-card">
-              <Card.Img variant="top" src="/image3.jpg" alt="Projet 3" />
+              <Card.Img variant="top" src={image1} alt="Projet 3" />
               <Card.Body>
                 <Card.Title>Résidence Émeraude</Card.Title>
                 <Card.Text>

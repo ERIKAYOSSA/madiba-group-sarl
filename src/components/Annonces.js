@@ -146,7 +146,7 @@ function Annonces() {
 
       {/* ✅ Ventes Flash */}
       <Container className="my-5">
-        <h2 className="text-center fw-bold mb-4">🔥 Ventes Flash</h2>
+        <h2 className="text-center fw-bold mb-4" >🔥 Ventes Flash 🔥 </h2>
         <Row>
           <Col md={4}>
             <FlashCard>
@@ -199,8 +199,10 @@ function Annonces() {
             <Col md={3} className="text-center text-md-start mb-3">
               <img src={logoMadiba} alt="Logo Madiba Group" className="footer-logo mb-3" />
               <h4 className="footer-title">MADIBA GROUP SARL</h4>
-              <p className="footer-text">Votre partenaire de confiance en immobilier et log </p>
-                            <h5 className="footer-title">Liens rapides</h5>
+              <p className="footer-text">Votre partenaire de confiance en immobilier et logistique.</p>
+            </Col>
+            <Col md={3} className="text-center mb-3">
+              <h5 className="footer-title">Liens rapides</h5>
               <ul className="list-unstyled">
                 <li><Link to="/" className="footer-link">Accueil</Link></li>
                 <li><Link to="/nos-services" className="footer-link">Nos Services</Link></li>
@@ -219,29 +221,14 @@ function Annonces() {
             <Col md={3} className="text-center text-md-end mb-3">
               <h5 className="footer-title">Suivez-nous</h5>
               <div className="social-icons">
-                <a
-                  href="https://www.tiktok.com/@madibagroupsarl"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="tiktok"
-                >
+                <a href="https://www.tiktok.com/@madibagroupsarl" target="_blank" rel="noopener noreferrer" className="tiktok">
                   <i className="bi bi-tiktok"></i>
                 </a>
-                <a
-                  href="https://www.facebook.com/madibagroupsarl"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="facebook"
-                >
-                  <i className="bi bi-facebook"></i>
-                </a>
-                <a
-                  href="https://www.instagram.com/madibagroupsarl"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="instagram"
-                >
+                <a href="https://www.instagram.com/madibagroupsarl" target="_blank" rel="noopener noreferrer" className="instagram">
                   <i className="bi bi-instagram"></i>
+                </a>
+                <a href="https://www.facebook.com/madibagroupsarl" target="_blank" rel="noopener noreferrer" className="facebook">
+                  <i className="bi bi-facebook"></i>
                 </a>
               </div>
             </Col>
