@@ -136,3 +136,205 @@
 .footer-barre {
   border-top: 1px solid rgba(255,255,255,0.2);
 }
+/* ===== Hero Section ===== */
+.annonces-hero {
+  height: 50vh;
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6));
+  color: #fff;
+  text-align: center;
+}
+
+/* ===== Ventes Flash Cards ===== */
+.flash-card {
+  border-radius: 12px;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease, border 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.flash-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.flash-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.25);
+  border: 2px solid goldenrod;
+}
+
+.flash-card img {
+  height: 220px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.flash-card:hover img {
+  transform: scale(1.05);
+}
+
+.flash-card:hover .card-title {
+  color: goldenrod;
+  transition: color 0.3s ease;
+}
+
+/* Prix */
+.old-price {
+  text-decoration: line-through;
+  color: #999;
+  margin-right: 8px;
+}
+
+.new-price {
+  color: #e63946;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+/* Timer */
+.flash-timer {
+  font-size: 0.9rem;
+  color: #001f3f;
+  font-weight: 600;
+  margin: 8px 0;
+}
+
+.flash-timer.urgent {
+  color: #e63946;
+  font-weight: bold;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0.3; }
+  100% { opacity: 1; }
+}
+
+/* ProgressBar */
+.progress {
+  height: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: rgba(0, 31, 63, 0.2);
+  margin-top: 8px;
+}
+
+.progress-bar {
+  font-weight: bold;
+  font-size: 0.85rem;
+  line-height: 20px;
+  transition: width 0.5s ease;
+}
+
+.bg-info {
+  background-color: #001f3f !important;
+  color: goldenrod;
+}
+
+.bg-danger {
+  background-color: #e63946 !important;
+  color: #fff;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.6; }
+  100% { opacity: 1; }
+}
+
+/* Bouton */
+.flash-btn {
+  background-color: #001f3f;
+  border: none;
+  color: goldenrod;
+  font-weight: bold;
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  width: 100%;
+  border-radius: 8px;
+}
+
+.flash-btn:hover {
+  background-color: goldenrod;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 0 12px 4px rgba(218, 165, 32, 0.7);
+}
+
+.flash-btn:focus,
+.flash-btn:active {
+  outline: none;
+  box-shadow: 0 0 16px 6px rgba(218, 165, 32, 0.9);
+}
+
+/* ===== Navbar ===== */
+.custom-navbar {
+  background: rgba(0, 31, 63, 0.95);
+  backdrop-filter: blur(6px);
+}
+
+.custom-navbar .nav-link {
+  color: goldenrod !important;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.custom-navbar .nav-link:hover {
+  color: #fff !important;
+}
+
+.nav-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+/* ===== Footer ===== */
+.custom-footer {
+  background: #001f3f;
+  color: #fff;
+  padding: 40px 0;
+}
+
+.footer-logo {
+  height: 50px;
+}
+
+.footer-title {
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: goldenrod;
+}
+
+.footer-text {
+  color: #f1f1f1;
+  font-size: 0.95rem;
+}
+
+.footer-link {
+  color: #f1f1f1;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: goldenrod;
+}
+
+.social-icons a {
+  color: #fff;
+  font-size: 1.4rem;
+  margin: 0 8px;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: goldenrod;
+}
+
+.footer-barre {
+  border-top: 1px solid rgba(255,255,255,0.2);
+}
