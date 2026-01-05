@@ -7,7 +7,7 @@ import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import logoMadiba from "../logomadiba.jpg";
-import videoBg from "../vid.MP4";
+import image1 from "../image1.jpg";
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 
 function Contact() {
@@ -47,16 +47,18 @@ function Contact() {
         </Container>
       </Navbar>
 
-      {/* Hero Section */}
-      <header className="contact-hero-section position-relative text-center">
-        <video
-          src={videoBg}
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="contact-video-bg"
-        />
+      {/* Hero Section */}     
+      <header className="contact-hero-section position-relative text-center"
+                style={{
+                  backgroundImage: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(${image1})`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  height: "50vh",
+                  color: "#fff",
+                  textAlign: "center",
+                }}
+              >
+        <div className="contact-hero-bg"></div>
         <div className="contact-hero-overlay d-flex flex-column justify-content-center align-items-center">
           <h1 className="fw-bold animate__animated animate__fadeInDown text-white">
             Contactez-nous
@@ -66,7 +68,6 @@ function Contact() {
           </p>
         </div>
       </header>
-
       <Container className="my-5">
         {/* Formulaire de contact */}
         <Row className="justify-content-center">

@@ -26,55 +26,77 @@
 }
 
 /* ===== Hero Section ===== */
+
+/* Section Hero */
 .contact-hero-section {
-  height: 70vh;
   position: relative;
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
 }
 
-.contact-video-bg {
+/* Image de fond */
+.contact-hero-bg {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  background-size: cover;
+  background-position: center;
+  filter: brightness(65%);
   z-index: -1;
 }
 
+/* Overlay */
 .contact-hero-overlay {
   position: relative;
   z-index: 1;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  text-align: center;
+  padding: 0 20px;
 }
 
+/* Titre */
 .contact-hero-overlay h1 {
   font-size: 3rem;
   font-weight: 700;
-  color: #fff;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
 }
 
+/* Paragraphe */
 .contact-hero-overlay p {
   font-size: 1.2rem;
-  color: #f1f1f1;
   max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+  color: #f1f1f1;
 }
-.contact-video-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -1;
+
+/* Ligne décorative originale */
+.contact-hero-overlay::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: goldenrod;
+  margin: 20px auto 0;
+  border-radius: 2px;
 }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contact-hero-overlay h1 {
+    font-size: 2rem;
+  }
+  .contact-hero-overlay p {
+    font-size: 1rem;
+  }
+}
+
+
 
 /* ===== Formulaire ===== */
 .contact-page .card {

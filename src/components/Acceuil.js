@@ -298,58 +298,68 @@ function Acceuil() {
       </Modal>
 
       {/* SECTION NOS MEUBLES */}
-      <Container id="meubles" className="my-5">
-        <h2 className="mb-4">Nos meublés disponibles</h2>
-        <Row>
-          {meubles.map((m, i) => (
-            <Col xs={12} sm={6} md={4} key={m.id}>
-              <Card className="mb-4 animate__animated animate__zoomIn"
-                style={{ border: "2px solid transparent", transition: "transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease" }}
-                onMouseEnter={(e) => { e.currentTarget.style.transform = "scale(1.05)"; e.currentTarget.style.boxShadow = "0 10px 20px rgba(0,0,0,0.2)"; e.currentTarget.style.borderColor = "#001f3f"; }}
-                onMouseLeave={(e) => { e.currentTarget.style.transform = "scale(1)"; e.currentTarget.style.boxShadow = "none"; e.currentTarget.style.borderColor = "transparent"; }}>
-                <Link to={`/meuble${i + 1}`} style={{ textDecoration: "none" }}>
-                  <Card.Img variant="top" src={m.img} style={{ cursor: "pointer", width: "100%", height: "200px", objectFit: "cover" }} />
-                </Link>
-                <Card.Body>
-                  <Card.Title>{m.title}</Card.Title>
-                  <Row>
-                    <Col xs={4}><i className="bi bi-aspect-ratio"></i> {m.size}</Col>
-                    <Col xs={4}><i className="bi bi-bed"></i> {m.beds}</Col>
-                    <Col xs={4}><i className="bi bi-droplet"></i> {m.baths}</Col>
-                  </Row>
-                  <Row>
-                    <Col xs={4}><i className="bi bi-couch"></i> {m.living}</Col>
-                    <Col xs={4}><i className="bi bi-building"></i> {m.balcony ? "Balcon" : "Sans"}</Col>
-                    <Col xs={4}><i className="bi bi-cup-hot"></i> {m.kitchen}</Col>
-                  </Row>
-                  <Row>
-                    <Col xs={12}><i className="bi bi-geo-alt"></i> {m.location}</Col>
-                  </Row>
-                  <hr style={{ borderTop: "2px solid #001f3f", margin: "10px 0" }} />
-                  <h5 style={{ background: "linear-gradient(90deg, #001f3f, #e2df07ff)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", fontWeight: "bold", textAlign: "center" }}>
-                    {m.price}
-                  </h5>
-                  <Button
-                    className="btn-animated"
-                    style={{ backgroundColor: "#001f3f", border: "none", color: "goldenrod", fontWeight: "bold", width: "100%", marginTop: "10px" }}
-                    onClick={() => { setSelectedMeuble(m); setShowReservation(true); }}
-                  >
-                    Faire une réservation
-                  </Button>
-                </Card.Body>
-              </Card>
-            </Col>
-          ))}
-        </Row>
-        <div style={{ textAlign: "center", marginTop: "30px" }}>
-                    <Link 
-            to="/nos-meubles" 
-            style={{ color: themeColors.text, textDecoration: "none", fontWeight: "bold", fontSize: "18px" }}
-          >
-            Voir plus <i className="bi bi-arrow-right"></i>
+<Container id="meubles" className="my-5">
+  <h2 className="mb-4 text-center fw-bold">Nos meublés disponibles</h2>
+  <Row>
+    {meubles.map((m, i) => (
+      <Col xs={12} sm={6} md={4} key={m.id}>
+        <Card
+          className={`mb-4 animate__animated animate__fadeInUp animate__delay-${i}s meuble-card`}
+        >
+          <Link to={`/meuble${i + 1}`} style={{ textDecoration: "none" }}>
+            <Card.Img
+              variant="top"
+              src={m.img}
+              className="meuble-img"
+            />
           </Link>
-        </div>
-      </Container>
+          <Card.Body>
+            <Card.Title className="fw-bold text-center mb-3">{m.title}</Card.Title>
+
+            {/* Ligne 1 */}
+            <Row className="mb-2 text-muted meuble-info">
+              <Col xs={4}>📐 {m.size}</Col>
+              <Col xs={4}>🛏️ {m.beds}</Col>
+              <Col xs={4}>🚿 {m.baths}</Col>
+            </Row>
+
+            {/* Ligne 2 */}
+            <Row className="mb-2 text-muted meuble-info">
+              <Col xs={4}>🛋️ {m.living}</Col>
+              <Col xs={4}>{m.balcony ? "🌅 Balcon" : "🚫 Sans"}</Col>
+              <Col xs={4}>🍳 {m.kitchen}</Col>
+            </Row>
+
+            {/* Ligne 3 */}
+            <Row className="mb-2 text-muted meuble-info">
+              <Col xs={12}>📍 {m.location}</Col>
+            </Row>
+
+            <hr className="meuble-divider" />
+
+            <h5 className="meuble-price">{m.price}</h5>
+
+            <Button
+              className="btn-animated"
+              onClick={() => { setSelectedMeuble(m); setShowReservation(true); }}
+            >
+              Faire une réservation
+            </Button>
+          </Card.Body>
+        </Card>
+      </Col>
+    ))}
+  </Row>
+
+  <div className="text-center mt-4">
+    <Link
+      to="/nos-meubles"
+      className="meuble-link"
+    >
+      Voir plus ➡️
+    </Link>
+  </div>
+</Container>
 
       {/* Modal réservation */}
       <Modal show={showReservation} onHide={() => setShowReservation(false)} centered>
