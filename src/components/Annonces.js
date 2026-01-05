@@ -82,7 +82,8 @@ function Annonces() {
       </Navbar>
 
       {/* Hero Section */}
-      <header className="annonces-hero text-center d-flex flex-column justify-content-center align-items-center" className="annonces-hero"
+      <header
+  className="annonces-hero text-center d-flex flex-column justify-content-center align-items-center"
   style={{
     backgroundImage: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(${image1})`,
     backgroundSize: "cover",
@@ -92,14 +93,13 @@ function Annonces() {
     textAlign: "center",
   }}
 >
-        
-        <h1 className="fw-bold animate__animated animate__fadeInDown text-white">
-          Nos Annonces
-        </h1>
-        <p className="animate__animated animate__fadeInUp text-white">
-          Découvrez nos ventes flash et nos offres exclusives.
-        </p>
-      </header>
+  <h1 className="fw-bold animate__animated animate__fadeInDown text-white">
+    Nos Annonces
+  </h1>
+  <p className="animate__animated animate__fadeInUp text-white">
+    Découvrez nos ventes flash et nos offres exclusives.
+  </p>
+</header>
 
       {/* Ventes Flash */}
       <Container className="my-5">
