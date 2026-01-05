@@ -1,71 +1,20 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "animate.css";
 import "../App.css";
-import "../annonces.css";
-import { Container, Row, Col, Card, Navbar, Nav, NavDropdown, ProgressBar } from "react-bootstrap";
+import "../gestionlocative.css";
+import { Container, Row, Col, Card, Navbar, Nav, NavDropdown } from "react-bootstrap";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import logoMadiba from "../logomadiba.jpg";
-import image4 from "../image4.jpg";
-import image2 from "../image2.jpg";
-import image3 from "../image3.jpg";
 import image1 from "../image1.jpg";
-import React, { useState, useEffect, useCallback, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 
-/* ✅ Composant Timer avec barre de progression */
-function CountdownTimer({ targetDate }) {
-  const calculateTimeLeft = useCallback(() => {
-    const difference = +new Date(targetDate) - +new Date();
-    if (difference <= 0) {
-      return { jours: 0, heures: 0, minutes: 0, secondes: 0, total: 0 };
-    }
-    return {
-      jours: Math.floor(difference / (1000 * 60 * 60 * 24)),
-      heures: Math.floor((difference / (1000 * 60 * 60)) % 24),
-      minutes: Math.floor((difference / 1000 / 60) % 60),
-      secondes: Math.floor((difference / 1000) % 60),
-      total: difference,
-    };
-  }, [targetDate]);
-
-  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
-  const [initialTotal] = useState(+new Date(targetDate) - +new Date());
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setTimeLeft(calculateTimeLeft());
-    }, 1000);
-    return () => clearInterval(timer);
-  }, [calculateTimeLeft]);
-
-  const isUrgent =
-    timeLeft.jours === 0 && timeLeft.heures === 0 && timeLeft.minutes < 5;
-
-  const percent =
-    initialTotal > 0 ? Math.max((timeLeft.total / initialTotal) * 100, 0) : 0;
-
-  return (
-    <div>
-      <p className={`flash-timer ${isUrgent ? "urgent" : ""}`}>
-        ⏱ Temps restant : {timeLeft.jours}j {timeLeft.heures}h {timeLeft.minutes}m {timeLeft.secondes}s
-      </p>
-      <ProgressBar
-        now={percent}
-        variant={isUrgent ? "danger" : "info"}
-        animated
-        label={`${Math.round(percent)}%`}
-      />
-    </div>
-  );
-}
-
-/* ✅ Composant FlashCard avec copie locale du ref */
+/* ✅ Composant FlashCard animé */
 function FlashCard({ children }) {
   const ref = useRef(null);
 
   useEffect(() => {
-    const element = ref.current; // copie locale
-
+    const element = ref.current;
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -74,13 +23,9 @@ function FlashCard({ children }) {
       },
       { threshold: 0.2 }
     );
-
-    if (element) {
-      observer.observe(element);
-    }
-
+    if (element) observer.observe(element);
     return () => {
-      if (element) observer.unobserve(element); // utilise la copie locale
+      if (element) observer.unobserve(element);
     };
   }, []);
 
@@ -91,15 +36,15 @@ function FlashCard({ children }) {
   );
 }
 
-function Annonces() {
+function GestionLocative() {
   return (
-    <div className="annonces-page theme-transition">
+    <div className="gestionlocative-page theme-transition">
       <Helmet>
-        <title>Annonces - MADIBA GROUP SARL</title>
+        <title>Gestion Locative - MADIBA GROUP SARL</title>
         <link rel="icon" href="/logoMadiba.jpg" />
       </Helmet>
 
-      {/* ✅ Navbar */}
+      {/* ✅ Header (Navbar) */}
       <Navbar expand="lg" className="custom-navbar sticky-top">
         <Container>
           <Navbar.Brand href="/" className="d-flex align-items-center">
@@ -114,7 +59,6 @@ function Annonces() {
                 <NavDropdown.Item as={Link} to="/nos-meubles">Meublé</NavDropdown.Item>
                 <NavDropdown.Item as={Link} to="/nos-proprietes">Propriété</NavDropdown.Item>
               </NavDropdown>
-              <Nav.Link as={Link} to="/mes-favoris">Favoris</Nav.Link>
               <Nav.Link as={Link} to="/annonces">Annonces</Nav.Link>
               <NavDropdown title="Services" id="services-dropdown">
                 <NavDropdown.Item as={Link} to="/nos-proprietes">Vente</NavDropdown.Item>
@@ -129,64 +73,94 @@ function Annonces() {
 
       {/* ✅ Hero Section */}
       <header
-        className="annonces-hero text-center d-flex flex-column justify-content-center align-items-center"
+        className="gestionlocative-hero text-center d-flex flex-column justify-content-center align-items-center"
         style={{
           backgroundImage: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(${image1})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           height: "50vh",
           color: "#fff",
-          textAlign: "center",
         }}
       >
-        <h1 className="fw-bold animate__animated animate__fadeInDown text-white">Nos Annonces</h1>
+        <h1 className="fw-bold animate__animated animate__fadeInDown text-white">Gestion Locative</h1>
         <p className="animate__animated animate__fadeInUp text-white">
-          Découvrez nos ventes flash et nos offres exclusives.
+          Confiez-nous la gestion de vos biens pour une tranquillité totale.
         </p>
       </header>
 
-      {/* ✅ Ventes Flash */}
+      {/* ✅ Section Services avec icônes */}
       <Container className="my-5">
-        <h2 className="text-center fw-bold mb-4" > ⚡️     🔥 Ventes Flash 🔥     ⚡️</h2>
+        <h2 className="text-center fw-bold mb-4">📋 Nos prestations</h2>
         <Row>
           <Col md={4}>
             <FlashCard>
-              <Card.Img variant="top" src={image4} alt="Vente Flash 1" />
-              <Card.Body>
-                <Card.Title>Appartement 3 pièces</Card.Title>
+              <Card.Body className="text-center">
+                <i className="bi bi-person-check service-icon"></i>
+                <Card.Title>Recherche de locataires</Card.Title>
                 <Card.Text>
-                  <span className="old-price">10 000 000 FCFA</span> → <span className="new-price">7 000 000 FCFA</span>
+                  Nous sélectionnons des profils fiables et solvables pour occuper vos biens.
                 </Card.Text>
-                <CountdownTimer targetDate="2026-01-06T12:00:00" />
-                <Link to="/contact" className="btn btn-primary flash-btn">Plus d’info</Link>
               </Card.Body>
             </FlashCard>
           </Col>
-
           <Col md={4}>
             <FlashCard>
-              <Card.Img variant="top" src={image2} alt="Vente Flash 2" />
-              <Card.Body>
-                <Card.Title>Studio Meublé</Card.Title>
+              <Card.Body className="text-center">
+                <i className="bi bi-cash-stack service-icon"></i>
+                <Card.Title>Gestion des loyers</Card.Title>
                 <Card.Text>
-                  <span className="old-price">5 000 000 FCFA</span> → <span className="new-price">3 500 000 FCFA</span>
+                  Encaissement, suivi et relance des paiements pour une rentabilité assurée.
                 </Card.Text>
-                <CountdownTimer targetDate="2026-01-07T18:00:00" />
-                <Link to="/contact" className="btn btn-primary flash-btn">Plus d’info</Link>
               </Card.Body>
             </FlashCard>
           </Col>
-
           <Col md={4}>
             <FlashCard>
-              <Card.Img variant="top" src={image3} alt="Vente Flash 3" />
-              <Card.Body>
-                <Card.Title>Terrain 500m²</Card.Title>
+              <Card.Body className="text-center">
+                <i className="bi bi-tools service-icon"></i>
+                <Card.Title>Entretien et maintenance</Card.Title>
                 <Card.Text>
-                  <span className="old-price">15 000 000 FCFA</span> → <span className="new-price">12 000 000 FCFA</span>
+                  Suivi des réparations et entretien régulier pour préserver la valeur de vos biens.
                 </Card.Text>
-                <CountdownTimer targetDate="2026-01-10T09:00:00" />
-                <Link to="/contact" className="btn btn-primary flash-btn">Plus d’info</Link>
+              </Card.Body>
+            </FlashCard>
+          </Col>
+        </Row>
+      </Container>
+            {/* ✅ Section Pourquoi nous choisir */}
+      <Container className="my-5">
+        <h2 className="text-center fw-bold mb-4">🌟 Pourquoi nous choisir ?</h2>
+        <Row>
+          <Col md={4}>
+            <FlashCard>
+              <Card.Body className="text-center">
+                <i className="bi bi-shield-lock service-icon"></i>
+                <Card.Title>Sécurité</Card.Title>
+                <Card.Text>
+                  Vos biens sont protégés grâce à une gestion rigoureuse et transparente.
+                </Card.Text>
+              </Card.Body>
+            </FlashCard>
+          </Col>
+          <Col md={4}>
+            <FlashCard>
+              <Card.Body className="text-center">
+                <i className="bi bi-graph-up-arrow service-icon"></i>
+                <Card.Title>Rentabilité</Card.Title>
+                <Card.Text>
+                  Maximisez vos revenus locatifs grâce à un suivi efficace et des locataires fiables.
+                </Card.Text>
+              </Card.Body>
+            </FlashCard>
+          </Col>
+          <Col md={4}>
+            <FlashCard>
+              <Card.Body className="text-center">
+                <i className="bi bi-people service-icon"></i>
+                <Card.Title>Accompagnement</Card.Title>
+                <Card.Text>
+                  Une équipe dédiée vous conseille et vous accompagne à chaque étape.
+                </Card.Text>
               </Card.Body>
             </FlashCard>
           </Col>
@@ -225,11 +199,11 @@ function Annonces() {
                 <a href="https://www.tiktok.com/@madibagroupsarl" target="_blank" rel="noopener noreferrer" className="tiktok">
                   <i className="bi bi-tiktok"></i>
                 </a>
-                <a href="https://www.instagram.com/madibagroupsarl" target="_blank" rel="noopener noreferrer" className="instagram">
-                  <i className="bi bi-instagram"></i>
-                </a>
                 <a href="https://www.facebook.com/madibagroupsarl" target="_blank" rel="noopener noreferrer" className="facebook">
                   <i className="bi bi-facebook"></i>
+                </a>
+                <a href="https://www.instagram.com/madibagroupsarl" target="_blank" rel="noopener noreferrer" className="instagram">
+                  <i className="bi bi-instagram"></i>
                 </a>
               </div>
             </Col>
@@ -244,4 +218,4 @@ function Annonces() {
   );
 }
 
-export default Annonces;
+export default GestionLocative;

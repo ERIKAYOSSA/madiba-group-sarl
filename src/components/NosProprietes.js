@@ -40,7 +40,7 @@ function FlashCard({ children }) {
 }
 
 function NosProprietes() {
-  // ✅ Données des propriétés (simples pour l’exemple)
+  // ✅ Données des propriétés
   const properties = [
     {
       id: 1,
@@ -85,6 +85,15 @@ function NosProprietes() {
     setFilters({ ...filters, [e.target.name]: e.target.value });
   };
 
+  // ✅ Favoris
+  const [favorites, setFavorites] = useState([]);
+
+  const toggleFavorite = (id) => {
+    setFavorites((prev) =>
+      prev.includes(id) ? prev.filter((fav) => fav !== id) : [...prev, id]
+    );
+  };
+
   // ✅ Filtrage dynamique
   const filteredProperties = properties.filter((property) => {
     const matchType = filters.type ? property.type === filters.type : true;
@@ -115,6 +124,7 @@ function NosProprietes() {
                 <NavDropdown.Item as={Link} to="/nos-meubles">Meublé</NavDropdown.Item>
                 <NavDropdown.Item as={Link} to="/nos-proprietes">Propriété</NavDropdown.Item>
               </NavDropdown>
+              <Nav.Link as={Link} to="/mes-favoris">Favoris</Nav.Link>
               <Nav.Link as={Link} to="/annonces">Annonces</Nav.Link>
               <NavDropdown title="Services" id="services-dropdown">
                 <NavDropdown.Item as={Link} to="/nos-proprietes">Vente</NavDropdown.Item>
@@ -176,7 +186,7 @@ function NosProprietes() {
         </Row>
       </Container>
 
-      {/* ✅ Grille filtrée avec badges */}
+      {/* ✅ Grille filtrée avec favoris */}
       <Container className="my-5">
         <h2 className="text-center fw-bold mb-4">🏡 Sélection du moment</h2>
         <Row>
@@ -184,16 +194,24 @@ function NosProprietes() {
             filteredProperties.map((property) => (
               <Col md={4} key={property.id}>
                 <FlashCard>
-                  <div style={{ position: "relative" }}>
-                    <span className={`property-badge ${property.badgeClass}`}>{property.badge}</span>
-                    <Card.Img variant="top" src={property.image} alt={property.title} />
-                  </div>
-                  <Card.Body>
-                    <Card.Title>{property.title}</Card.Title>
-                    <Card.Text>Prix : {property.price.toLocaleString()} FCFA</Card.Text>
-                    <Link to="/contact" className="btn btn-primary flash-btn">Voir détails</Link>
-                  </Card.Body>
-                </FlashCard>
+              <div style={{ position: "relative" }}>
+                <span className={`property-badge ${property.badgeClass}`}>{property.badge}</span>
+                <Card.Img variant="top" src={property.image} alt={property.title} />
+                {/* ✅ Icône cœur reliée à l’état global */}
+                <span
+                  className={`favorite-icon ${favorites.includes(property.id) ? "active" : ""}`}
+                  onClick={() => toggleFavorite(property.id)}
+                >
+                  <i className="bi bi-heart-fill"></i>
+                </span>
+              </div>
+              <Card.Body>
+                <Card.Title>{property.title}</Card.Title>
+                <Card.Text>Prix : {property.price.toLocaleString()} FCFA</Card.Text>
+                <Link to="/contact" className="btn btn-primary flash-btn">Voir détails</Link>
+              </Card.Body>
+            </FlashCard>
+
               </Col>
             ))
           ) : (
@@ -209,7 +227,8 @@ function NosProprietes() {
             <Col md={3} className="text-center text-md-start mb-3">
               <img src={logoMadiba} alt="Logo Madiba Group" className="footer-logo mb-3" />
               <h4 className="footer-title">MADIBA GROUP SARL</h4>
-              <p className="footer-text">Votre partenaire de confiance en immobilier et logistique.</p>
+              <p className="footer-text">Votre partenaire de confiance en immobilier et logistique <p/>
+                            </p>
             </Col>
             <Col md={3} className="text-center mb-3">
               <h5 className="footer-title">Liens rapides</h5>
@@ -220,14 +239,14 @@ function NosProprietes() {
               </ul>
             </Col>
             <Col md={3} className="text-center mb-3">
-                          <h5 className="footer-title">Services</h5>
-                          <ul className="list-unstyled">
-                            <li className="footer-text">Vente de propriété</li>
-                            <li className="footer-text">Promotion immobilière</li>
-                            <li className="footer-text">Gestion locative</li>
-                            <li className="footer-text">Accompagnement juridique</li>
-                          </ul>
-                        </Col>
+              <h5 className="footer-title">Services</h5>
+              <ul className="list-unstyled">
+                <li className="footer-text">Vente de propriété</li>
+                <li className="footer-text">Promotion immobilière</li>
+                <li className="footer-text">Gestion locative</li>
+                <li className="footer-text">Accompagnement juridique</li>
+              </ul>
+            </Col>
             <Col md={3} className="text-center text-md-end mb-3">
               <h5 className="footer-title">Suivez-nous</h5>
               <div className="social-icons">

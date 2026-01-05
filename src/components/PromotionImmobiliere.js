@@ -37,6 +37,7 @@ function PromotionImmobiliere() {
                 <NavDropdown.Item as={Link} to="/nos-meubles">Meublé</NavDropdown.Item>
                 <NavDropdown.Item as={Link} to="/nos-proprietes">Propriété</NavDropdown.Item>
               </NavDropdown>
+              <Nav.Link as={Link} to="/mes-favoris">Favoris</Nav.Link>
               <Nav.Link as={Link} to="/annonces">Annonces</Nav.Link>
               <NavDropdown title="Services" id="services-dropdown">
                 <NavDropdown.Item as={Link} to="/nos-proprietes">Vente</NavDropdown.Item>

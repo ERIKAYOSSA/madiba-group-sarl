@@ -1,0 +1,168 @@
+/* ===== Hero Section ===== */
+.nosproprietes-hero {
+  height: 50vh;
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6));
+  color: #fff;
+  text-align: center;
+}
+
+/* ===== Barre de filtres ===== */
+.filter-bar {
+  background: rgba(0, 31, 63, 0.05);
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.filter-bar select,
+.filter-bar input {
+  border: 2px solid #001f3f;
+  border-radius: 8px;
+  padding: 8px;
+  font-weight: 500;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.filter-bar select:focus,
+.filter-bar input:focus {
+  border-color: goldenrod;
+  box-shadow: 0 0 8px rgba(218,165,32,0.6);
+  outline: none;
+}
+
+/* ===== Cartes Propriétés ===== */
+.flash-card {
+  border-radius: 12px;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease, border 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.flash-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.flash-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.25);
+  border: 2px solid goldenrod;
+}
+
+.flash-card img {
+  height: 220px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.flash-card:hover img {
+  transform: scale(1.05);
+}
+
+.flash-card:hover .card-title {
+  color: goldenrod;
+  transition: color 0.3s ease;
+}
+
+/* ===== Bouton Voir détails ===== */
+.flash-btn {
+  background-color: #001f3f;
+  border: none;
+  color: goldenrod;
+  font-weight: bold;
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  width: 100%;
+  border-radius: 8px;
+}
+
+.flash-btn:hover {
+  background-color: goldenrod;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 0 12px 4px rgba(218, 165, 32, 0.7);
+}
+
+.flash-btn:focus,
+.flash-btn:active {
+  outline: none;
+  box-shadow: 0 0 16px 6px rgba(218, 165, 32, 0.9);
+}
+
+/* ===== Navbar ===== */
+.custom-navbar {
+  background: rgba(0, 31, 63, 0.95);
+  backdrop-filter: blur(6px);
+}
+
+.custom-navbar .nav-link {
+  color: goldenrod !important;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.custom-navbar .nav-link:hover {
+  color: #fff !important;
+}
+
+.nav-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+}
+/* ===== Badges dynamiques ===== */
+.property-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: goldenrod;
+  color: #fff;
+  font-weight: bold;
+  font-size: 0.85rem;
+  padding: 6px 12px;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.25);
+  animation: fadeInBadge 0.8s ease forwards;
+  z-index: 2;
+}
+
+/* Variantes de badge */
+.badge-new {
+  background: #28a745; /* vert */
+}
+
+.badge-promo {
+  background: #e63946; /* rouge promo */
+}
+
+.badge-exclusive {
+  background: #001f3f; /* bleu foncé branding */
+  color: goldenrod;
+}
+
+/* Animation d’apparition */
+@keyframes fadeInBadge {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+/* Icône cœur favoris */
+.favorite-icon {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-size: 1.5rem;
+  color: #ccc;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.2s ease;
+  z-index: 3;
+}
+
+.favorite-icon:hover {
+  transform: scale(1.2);
+  color: goldenrod;
+}
+
+.favorite-icon.active {
+  color: #e63946; /* rouge vif quand favori */
+}
