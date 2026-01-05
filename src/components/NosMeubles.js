@@ -247,16 +247,16 @@ function NosMeubles() {
 
             {/* Ligne 1 */}
             <Row className="mb-2 text-muted">
-              <Col xs={4}>📐 {m.size}</Col>
-              <Col xs={4}>🛏️ {m.beds}</Col>
-              <Col xs={4}>🚿 {m.baths}</Col>
+              <Col xs={4}>superficie {m.size}</Col>
+              <Col xs={4}>chambre {m.beds}</Col>
+              <Col xs={4}>douche {m.baths}</Col>
             </Row>
 
             {/* Ligne 2 */}
             <Row className="mb-2 text-muted">
-              <Col xs={4}>🛋️ {m.living}</Col>
-              <Col xs={4}>{m.balcony ? "🌅 Balcon" : "🚫 Sans"}</Col>
-              <Col xs={4}>🍳 {m.kitchen}</Col>
+              <Col xs={4}>salon {m.living}</Col>
+              <Col xs={4}>{m.balcony ? " Balcon" : " Sans"}</Col>
+              <Col xs={4}>cuisine {m.kitchen}</Col>
             </Row>
 
             {/* Ligne 3 */}
