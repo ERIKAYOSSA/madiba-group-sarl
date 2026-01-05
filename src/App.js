@@ -6,6 +6,8 @@ import Page3 from "./components/Page3";
 import NosMeubles from "./components/NosMeubles";
 import MeubleDetails from "./components/MeubleDetails";
 import Contact from "./components/Contact";
+import PromotionImmobiliere from "./components/PromotionImmobiliere";
+import Annonces from "./components/Annonces";
 
 
 function App() {
@@ -18,7 +20,9 @@ function App() {
         <Route path="/page3" element={<Page3 />} />
         <Route path="/meuble/:id" element={<MeubleDetails />} />
         <Route path="/nos-meubles" element={<NosMeubles />} />
-         <Route path="/contact" element={<Contact />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/promotion-immobiliere" element={<PromotionImmobiliere/>} />
+        <Route path="/annonces" element={<Annonces/>} />
 
       </Routes>
     </Router>

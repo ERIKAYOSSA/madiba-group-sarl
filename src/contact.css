@@ -1,0 +1,113 @@
+/* ===== Navbar ===== */
+.contact-navbar {
+  background: rgba(0, 31, 63, 0.9);
+  backdrop-filter: blur(6px);
+  transition: background 0.3s ease;
+}
+
+.contact-navbar .nav-link {
+  color: goldenrod !important;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.contact-navbar .nav-link:hover {
+  color: #fff !important;
+}
+
+.contact-nav-logo {
+  height: 40px;
+}
+
+.contact-nav-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+/* ===== Hero Section ===== */
+.contact-hero-section {
+  height: 70vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-video-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.contact-hero-overlay {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-hero-overlay h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.contact-hero-overlay p {
+  font-size: 1.2rem;
+  color: #f1f1f1;
+  max-width: 600px;
+}
+.contact-video-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+/* ===== Formulaire ===== */
+.contact-page .card {
+  border-radius: 12px;
+  border: none;
+}
+
+.contact-page .form-label {
+  font-weight: 600;
+  color: #001f3f;
+}
+
+.contact-page .form-control {
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  transition: border-color 0.3s ease;
+}
+
+.contact-page .form-control:focus {
+  border-color: goldenrod;
+  box-shadow: 0 0 6px rgba(218, 165, 32, 0.5);
+}
+
+.contact-btn {
+  background: linear-gradient(90deg, goldenrod, #ffb400);
+  color: #fff;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+

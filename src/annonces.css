@@ -1,0 +1,138 @@
+/* ===== Hero Section ===== */
+
+
+/* ===== Ventes Flash Cards ===== */
+.flash-card {
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.flash-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+.flash-card img {
+  height: 220px;
+  object-fit: cover;
+}
+
+/* Prix */
+.old-price {
+  text-decoration: line-through;
+  color: #999;
+  margin-right: 8px;
+}
+
+.new-price {
+  color: #e63946; /* rouge promo */
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+/* Timer */
+.flash-timer {
+  font-size: 0.9rem;
+  color: #001f3f;
+  font-weight: 600;
+  margin: 8px 0;
+}
+
+/* ✅ Animation urgence quand < 5 minutes */
+.flash-timer.urgent {
+  color: #e63946;
+  font-weight: bold;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0.3; }
+  100% { opacity: 1; }
+}
+
+/* Bouton */
+.flash-btn {
+  background-color: #001f3f;
+  border: none;
+  color: goldenrod;
+  font-weight: bold;
+  transition: background 0.3s ease, transform 0.2s ease;
+  width: 100%;
+}
+
+.flash-btn:hover {
+  background-color: goldenrod;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* ===== Navbar ===== */
+.custom-navbar {
+  background: rgba(0, 31, 63, 0.95);
+  backdrop-filter: blur(6px);
+}
+
+.custom-navbar .nav-link {
+  color: goldenrod !important;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.custom-navbar .nav-link:hover {
+  color: #fff !important;
+}
+
+.nav-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+/* ===== Footer ===== */
+.custom-footer {
+  background: #001f3f;
+  color: #fff;
+  padding: 40px 0;
+}
+
+.footer-logo {
+  height: 50px;
+}
+
+.footer-title {
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: goldenrod;
+}
+
+.footer-text {
+  color: #f1f1f1;
+  font-size: 0.95rem;
+}
+
+.footer-link {
+  color: #f1f1f1;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: goldenrod;
+}
+
+.social-icons a {
+  color: #fff;
+  font-size: 1.4rem;
+  margin: 0 8px;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: goldenrod;
+}
+
+.footer-barre {
+  border-top: 1px solid rgba(255,255,255,0.2);
+}

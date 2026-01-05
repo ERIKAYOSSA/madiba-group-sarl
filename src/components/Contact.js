@@ -1,13 +1,15 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "animate.css";
 import "../App.css";
+import "../contact.css"; // ✅ CSS isolé pour Contact
 import { Container, Row, Col, Card, Form, Button } from "react-bootstrap";
 import { Helmet } from "react-helmet";
-import { Link } from "react-router-dom"; // ✅ utilisé pour le bouton retour
+import { Link } from "react-router-dom";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import logoMadiba from "../logomadiba.jpg";
-import videoBg from "../vid.MP4"; // ✅ importe ta vidéo
-import {  Navbar,  Nav,  NavDropdown} from "react-bootstrap";
+import videoBg from "../vid.MP4";
+import { Navbar, Nav, NavDropdown } from "react-bootstrap";
+
 function Contact() {
   return (
     <div className="contact-page theme-transition">
@@ -16,12 +18,13 @@ function Contact() {
         <title>Contact - MADIBA GROUP SARL</title>
         <link rel="icon" href="/logoMadiba.jpg" />
       </Helmet>
+
       {/* ✅ Navbar */}
-      <Navbar expand="lg" className="custom-navbar sticky-top">
+      <Navbar expand="lg" className="contact-navbar sticky-top">
         <Container>
-          <Navbar.Brand as={Link} to="/" className="d-flex align-items-center">
-            <img src="/logomadiba.jpg" alt="Logo Madiba Group" className="nav-logo me-2" />
-            <span className="nav-title">MADIBA GROUP SARL</span>
+          <Navbar.Brand href="/" className="d-flex align-items-center">
+            <img src={logoMadiba} alt="Logo Madiba Group" className="contact-nav-logo me-2" />
+            <span className="contact-nav-title">MADIBA GROUP SARL</span>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
@@ -43,31 +46,25 @@ function Contact() {
         </Container>
       </Navbar>
 
-
-
-     {/* Hero Section */}
-<header className="contact-hero position-relative text-center">
-  {/* ✅ Vidéo en fond */}
-  <video
-    src={videoBg}
-    autoPlay
-    loop
-    muted
-    playsInline
-    className="video-background"
-  />
-
-  {/* ✅ Overlay pour le texte */}
-  <div className="hero-overlay d-flex flex-column justify-content-center align-items-center">
-    <h1 className="fw-bold animate__animated animate__fadeInDown text-white">
-      Contactez-nous
-    </h1>
-    <p className="animate__animated animate__fadeInUp text-white">
-      Nous sommes disponibles pour répondre à vos questions et vous accompagner dans vos projets.
-    </p>
-  </div>
-</header>
-
+      {/* Hero Section */}
+      <header className="contact-hero-section position-relative text-center">
+        <video
+          src={videoBg}
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="contact-video-bg"
+        />
+        <div className="contact-hero-overlay d-flex flex-column justify-content-center align-items-center">
+          <h1 className="fw-bold animate__animated animate__fadeInDown text-white">
+            Contactez-nous
+          </h1>
+          <p className="animate__animated animate__fadeInUp text-white">
+            Nous sommes disponibles pour répondre à vos questions et vous accompagner dans vos projets.
+          </p>
+        </div>
+      </header>
 
       <Container className="my-5">
         {/* Formulaire de contact */}
@@ -95,10 +92,7 @@ function Contact() {
                   <Form.Label>Message</Form.Label>
                   <Form.Control as="textarea" rows={4} placeholder="Votre message" />
                 </Form.Group>
-                <Button
-                  className="btn-animated"
-                  style={{ backgroundColor: "#FFB400", border: "none", color: "#fff", width: "100%" }}
-                >
+                <Button className="contact-btn">
                   Envoyer
                 </Button>
               </Form>
@@ -136,49 +130,43 @@ function Contact() {
           ></iframe>
         </div>
 
-        {/* ✅ Bouton retour à l’accueil */}
+        {/* Bouton retour */}
         <div className="text-center mt-5">
-          <Link 
-            to="/" 
-            className="btn btn-primary"
-            style={{ backgroundColor: "#001f3f", border: "none", color: "goldenrod", fontWeight: "bold" }}
-          >
+          <Link to="/" className="btn btn-primary contact-btn">
             <i className="bi bi-arrow-left-circle me-2"></i> Retour à l’accueil
           </Link>
         </div>
       </Container>
-      {/* ✅ Footer */}
-      <footer className="footer mt-5 py-4" style={{ backgroundColor: "#001f3f", color: "#fff" }}>
+
+      {/* FOOTER */}
+      <footer className="custom-footer">
         <Container>
-          <Row>
-            {/* Logo et titre */}
-            <Col md={3} className="text-center mb-3">
+          <Row className="align-items-center">
+            <Col md={3} className="text-center text-md-start mb-3">
               <img src={logoMadiba} alt="Logo Madiba Group" className="footer-logo mb-3" />
-              <h5 className="footer-title">MADIBA GROUP SARL</h5>
-              <p style={{  color: "#fff" }}>Votre partenaire immobilier de confiance</p>
+              <h4 className="footer-title">MADIBA GROUP SARL</h4>
+              <p className="footer-text">Votre partenaire de confiance en immobilier et logistique.</p>
             </Col>
-
             {/* Liens rapides */}
-            <Col md={3} className="text-center mb-3">
-              <h5 className="footer-title">Liens rapides</h5>
-              <ul className="list-unstyled">
-                <li><Link to="/" className="footer-link">Accueil</Link></li>
-                <li><Link to="/nos-services" className="footer-link">Nos Services</Link></li>
-                <li><Link to="/contact" className="footer-link">Contact</Link></li>
-              </ul>
-            </Col>
-
-            {/* Services */}
+              <Col md={3} className="text-center mb-3">
+                <h5 className="footer-title">Liens rapides</h5>
+                <ul className="list-unstyled">
+                  <li><Link to="/" className="footer-link">Accueil</Link></li>
+                  <li><Link to="/nos-services" className="footer-link">Nos Services</Link></li>
+                  {/* ✅ Correction ici */}
+                  <li><Link to="/contact" className="footer-link">Contact</Link></li>
+                </ul>
+              </Col>
             <Col md={3} className="text-center mb-3">
               <h5 className="footer-title">Services</h5>
               <ul className="list-unstyled">
-                <li>Vente</li>
-                <li>Promotion immobilière</li>
-                <li>Gestion locative</li>
+                <li className="footer-text">Vente de propriété</li>
+                <li className="footer-text">Promotion immobilière</li>
+                <li className="footer-text">Gestion locative</li>
+                <li className="footer-text">Accompagnement juridique</li>
               </ul>
             </Col>
-             {/* Réseaux sociaux */}
-            <Col md={3} className="text-center mb-3">
+            <Col md={3} className="text-center text-md-end mb-3">
               <h5 className="footer-title">Suivez-nous</h5>
               <div className="social-icons">
                 <a href="https://www.tiktok.com/@madibagroupsarl" target="_blank" rel="noopener noreferrer" className="tiktok">
@@ -193,16 +181,13 @@ function Contact() {
               </div>
             </Col>
           </Row>
-          <Row className="mt-3">
-            <Col className="text-center">
-              <p className="mb-0" style={{  color: "#fff" }}>&copy; 2026 MADIBA GROUP SARL. Tous droits réservés.</p>
-            </Col>
-          </Row>
+          <hr className="footer-barre" />
+          <p className="text-center mt-3 footer-text">
+            © {new Date().getFullYear()} MADIBA GROUP SARL - Tous droits réservés
+          </p>
         </Container>
       </footer>
-
     </div>
-    
   );
 }
 
